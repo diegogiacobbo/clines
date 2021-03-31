@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Waypoint.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">clines-api</a> &gt; <a href="index.source.html" class="el_package">br.com.caelum.clines.shared.domain</a> &gt; <span class="el_source">Waypoint.java</span></div><h1>Waypoint.java</h1><pre class="source lang-java linenums">package br.com.caelum.clines.shared.domain;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = &quot;waypoints&quot;)
+@Getter
+<span class="nc" id="L20">@AllArgsConstructor</span>
+<span class="fc" id="L21">@NoArgsConstructor</span>
+public class Waypoint {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L25">    private Long id;</span>
+
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = &quot;airport_id&quot;)
+<span class="fc" id="L30">    private Airport airport;</span>
+
+    @NotNull
+<span class="fc" id="L33">    private LocalDateTime time;</span>
+
+    @NotNull
+<span class="fc" id="L36">    private String gate;</span>
+
+<span class="fc" id="L38">    public Waypoint(Airport airport, LocalDateTime time, String gate) {</span>
+<span class="fc" id="L39">        this.airport = airport;</span>
+<span class="fc" id="L40">        this.time = time;</span>
+<span class="fc" id="L41">        this.gate = gate;</span>
+<span class="fc" id="L42">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

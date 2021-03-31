@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PromotionalCodeService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">clines-api</a> &gt; <a href="index.source.html" class="el_package">br.com.caelum.clines.api.promotionalcodes</a> &gt; <span class="el_source">PromotionalCodeService.java</span></div><h1>PromotionalCodeService.java</h1><pre class="source lang-java linenums">package br.com.caelum.clines.api.promotionalcodes;
+
+import br.com.caelum.clines.shared.exceptions.ResourceAlreadyExistsException;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+
+@Service
+<span class="fc" id="L8">@AllArgsConstructor</span>
+public class PromotionalCodeService {
+    private final PromotionalCodeRepository repository;
+    private final PromotionalCodeFormMapper formMapper;
+
+    public String createPromotionalCodeBy(PromotionalCodeForm form) {
+<span class="fc" id="L14">        repository.findByCode(form.getCode()).ifPresent(entity -&gt; {</span>
+<span class="fc" id="L15">            throw new ResourceAlreadyExistsException(&quot;Promotional code already exists&quot;);</span>
+        });
+
+<span class="fc" id="L18">        var promotionalCode = formMapper.map(form);</span>
+
+<span class="fc" id="L20">        promotionalCode = repository.save(promotionalCode);</span>
+
+<span class="fc" id="L22">        return promotionalCode.getCode();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Country.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">clines-api</a> &gt; <a href="index.source.html" class="el_package">br.com.caelum.clines.shared.domain</a> &gt; <span class="el_source">Country.java</span></div><h1>Country.java</h1><pre class="source lang-java linenums">package br.com.caelum.clines.shared.domain;
+
+import java.util.EnumSet;
+
+<span class="fc" id="L5">public enum Country {</span>
+<span class="fc" id="L6">    AF(&quot;Afghanistan&quot;),</span>
+<span class="fc" id="L7">    AX(&quot;Aland Islands&quot;),</span>
+<span class="fc" id="L8">    AL(&quot;Albania&quot;),</span>
+<span class="fc" id="L9">    DZ(&quot;Algeria&quot;),</span>
+<span class="fc" id="L10">    AS(&quot;American Samoa&quot;),</span>
+<span class="fc" id="L11">    AD(&quot;Andorra&quot;),</span>
+<span class="fc" id="L12">    AO(&quot;Angola&quot;),</span>
+<span class="fc" id="L13">    AI(&quot;Anguilla&quot;),</span>
+<span class="fc" id="L14">    AQ(&quot;Antarctica&quot;),</span>
+<span class="fc" id="L15">    AG(&quot;Antigua and Barbuda&quot;),</span>
+<span class="fc" id="L16">    AR(&quot;Argentina&quot;),</span>
+<span class="fc" id="L17">    AM(&quot;Armenia&quot;),</span>
+<span class="fc" id="L18">    AW(&quot;Aruba&quot;),</span>
+<span class="fc" id="L19">    AU(&quot;Australia&quot;),</span>
+<span class="fc" id="L20">    AT(&quot;Austria&quot;),</span>
+<span class="fc" id="L21">    AZ(&quot;Azerbaijan&quot;),</span>
+<span class="fc" id="L22">    BS(&quot;Bahamas&quot;),</span>
+<span class="fc" id="L23">    BH(&quot;Bahrain&quot;),</span>
+<span class="fc" id="L24">    BD(&quot;Bangladesh&quot;),</span>
+<span class="fc" id="L25">    BB(&quot;Barbados&quot;),</span>
+<span class="fc" id="L26">    BY(&quot;Belarus&quot;),</span>
+<span class="fc" id="L27">    BE(&quot;Belgium&quot;),</span>
+<span class="fc" id="L28">    BZ(&quot;Belize&quot;),</span>
+<span class="fc" id="L29">    BJ(&quot;Benin&quot;),</span>
+<span class="fc" id="L30">    BM(&quot;Bermuda&quot;),</span>
+<span class="fc" id="L31">    BT(&quot;Bhutan&quot;),</span>
+<span class="fc" id="L32">    BO(&quot;Bolivia&quot;),</span>
+<span class="fc" id="L33">    BQ(&quot;Bonaire, Saint Eustatius and Saba&quot;),</span>
+<span class="fc" id="L34">    BA(&quot;Bosnia and Herzegovina&quot;),</span>
+<span class="fc" id="L35">    BW(&quot;Botswana&quot;),</span>
+<span class="fc" id="L36">    BV(&quot;Bouvet Island&quot;),</span>
+<span class="fc" id="L37">    BR(&quot;Brazil&quot;),</span>
+<span class="fc" id="L38">    IO(&quot;British Indian Ocean Territory&quot;),</span>
+<span class="fc" id="L39">    VG(&quot;British Virgin Islands&quot;),</span>
+<span class="fc" id="L40">    BN(&quot;Brunei&quot;),</span>
+<span class="fc" id="L41">    BG(&quot;Bulgaria&quot;),</span>
+<span class="fc" id="L42">    BF(&quot;Burkina Faso&quot;),</span>
+<span class="fc" id="L43">    BI(&quot;Burundi&quot;),</span>
+<span class="fc" id="L44">    KH(&quot;Cambodia&quot;),</span>
+<span class="fc" id="L45">    CM(&quot;Cameroon&quot;),</span>
+<span class="fc" id="L46">    CA(&quot;Canada&quot;),</span>
+<span class="fc" id="L47">    CV(&quot;Cape Verde&quot;),</span>
+<span class="fc" id="L48">    KY(&quot;Cayman Islands&quot;),</span>
+<span class="fc" id="L49">    CF(&quot;Central African Republic&quot;),</span>
+<span class="fc" id="L50">    TD(&quot;Chad&quot;),</span>
+<span class="fc" id="L51">    CL(&quot;Chile&quot;),</span>
+<span class="fc" id="L52">    CN(&quot;China&quot;),</span>
+<span class="fc" id="L53">    CX(&quot;Christmas Island&quot;),</span>
+<span class="fc" id="L54">    CC(&quot;Cocos Islands&quot;),</span>
+<span class="fc" id="L55">    CO(&quot;Colombia&quot;),</span>
+<span class="fc" id="L56">    KM(&quot;Comoros&quot;),</span>
+<span class="fc" id="L57">    CK(&quot;Cook Islands&quot;),</span>
+<span class="fc" id="L58">    CR(&quot;Costa Rica&quot;),</span>
+<span class="fc" id="L59">    HR(&quot;Croatia&quot;),</span>
+<span class="fc" id="L60">    CU(&quot;Cuba&quot;),</span>
+<span class="fc" id="L61">    CW(&quot;Curacao&quot;),</span>
+<span class="fc" id="L62">    CY(&quot;Cyprus&quot;),</span>
+<span class="fc" id="L63">    CZ(&quot;Czech Republic&quot;),</span>
+<span class="fc" id="L64">    CD(&quot;Democratic Republic of the Congo&quot;),</span>
+<span class="fc" id="L65">    DK(&quot;Denmark&quot;),</span>
+<span class="fc" id="L66">    DJ(&quot;Djibouti&quot;),</span>
+<span class="fc" id="L67">    DM(&quot;Dominica&quot;),</span>
+<span class="fc" id="L68">    DO(&quot;Dominican Republic&quot;),</span>
+<span class="fc" id="L69">    TL(&quot;East Timor&quot;),</span>
+<span class="fc" id="L70">    EC(&quot;Ecuador&quot;),</span>
+<span class="fc" id="L71">    EG(&quot;Egypt&quot;),</span>
+<span class="fc" id="L72">    SV(&quot;El Salvador&quot;),</span>
+<span class="fc" id="L73">    GQ(&quot;Equatorial Guinea&quot;),</span>
+<span class="fc" id="L74">    ER(&quot;Eritrea&quot;),</span>
+<span class="fc" id="L75">    EE(&quot;Estonia&quot;),</span>
+<span class="fc" id="L76">    ET(&quot;Ethiopia&quot;),</span>
+<span class="fc" id="L77">    FK(&quot;Falkland Islands&quot;),</span>
+<span class="fc" id="L78">    FO(&quot;Faroe Islands&quot;),</span>
+<span class="fc" id="L79">    FJ(&quot;Fiji&quot;),</span>
+<span class="fc" id="L80">    FI(&quot;Finland&quot;),</span>
+<span class="fc" id="L81">    FR(&quot;France&quot;),</span>
+<span class="fc" id="L82">    GF(&quot;French Guiana&quot;),</span>
+<span class="fc" id="L83">    PF(&quot;French Polynesia&quot;),</span>
+<span class="fc" id="L84">    TF(&quot;French Southern Territories&quot;),</span>
+<span class="fc" id="L85">    GA(&quot;Gabon&quot;),</span>
+<span class="fc" id="L86">    GM(&quot;Gambia&quot;),</span>
+<span class="fc" id="L87">    GE(&quot;Georgia&quot;),</span>
+<span class="fc" id="L88">    DE(&quot;Germany&quot;),</span>
+<span class="fc" id="L89">    GH(&quot;Ghana&quot;),</span>
+<span class="fc" id="L90">    GI(&quot;Gibraltar&quot;),</span>
+<span class="fc" id="L91">    GR(&quot;Greece&quot;),</span>
+<span class="fc" id="L92">    GL(&quot;Greenland&quot;),</span>
+<span class="fc" id="L93">    GD(&quot;Grenada&quot;),</span>
+<span class="fc" id="L94">    GP(&quot;Guadeloupe&quot;),</span>
+<span class="fc" id="L95">    GU(&quot;Guam&quot;),</span>
+<span class="fc" id="L96">    GT(&quot;Guatemala&quot;),</span>
+<span class="fc" id="L97">    GG(&quot;Guernsey&quot;),</span>
+<span class="fc" id="L98">    GN(&quot;Guinea&quot;),</span>
+<span class="fc" id="L99">    GW(&quot;Guinea-Bissau&quot;),</span>
+<span class="fc" id="L100">    GY(&quot;Guyana&quot;),</span>
+<span class="fc" id="L101">    HT(&quot;Haiti&quot;),</span>
+<span class="fc" id="L102">    HM(&quot;Heard Island and McDonald Islands&quot;),</span>
+<span class="fc" id="L103">    HN(&quot;Honduras&quot;),</span>
+<span class="fc" id="L104">    HK(&quot;Hong Kong&quot;),</span>
+<span class="fc" id="L105">    HU(&quot;Hungary&quot;),</span>
+<span class="fc" id="L106">    IS(&quot;Iceland&quot;),</span>
+<span class="fc" id="L107">    IN(&quot;India&quot;),</span>
+<span class="fc" id="L108">    ID(&quot;Indonesia&quot;),</span>
+<span class="fc" id="L109">    IR(&quot;Iran&quot;),</span>
+<span class="fc" id="L110">    IQ(&quot;Iraq&quot;),</span>
+<span class="fc" id="L111">    IE(&quot;Ireland&quot;),</span>
+<span class="fc" id="L112">    IM(&quot;Isle of Man&quot;),</span>
+<span class="fc" id="L113">    IL(&quot;Israel&quot;),</span>
+<span class="fc" id="L114">    IT(&quot;Italy&quot;),</span>
+<span class="fc" id="L115">    CI(&quot;Ivory Coast&quot;),</span>
+<span class="fc" id="L116">    JM(&quot;Jamaica&quot;),</span>
+<span class="fc" id="L117">    JP(&quot;Japan&quot;),</span>
+<span class="fc" id="L118">    JE(&quot;Jersey&quot;),</span>
+<span class="fc" id="L119">    JO(&quot;Jordan&quot;),</span>
+<span class="fc" id="L120">    KZ(&quot;Kazakhstan&quot;),</span>
+<span class="fc" id="L121">    KE(&quot;Kenya&quot;),</span>
+<span class="fc" id="L122">    KI(&quot;Kiribati&quot;),</span>
+<span class="fc" id="L123">    XK(&quot;Kosovo&quot;),</span>
+<span class="fc" id="L124">    KW(&quot;Kuwait&quot;),</span>
+<span class="fc" id="L125">    KG(&quot;Kyrgyzstan&quot;),</span>
+<span class="fc" id="L126">    LA(&quot;Laos&quot;),</span>
+<span class="fc" id="L127">    LV(&quot;Latvia&quot;),</span>
+<span class="fc" id="L128">    LB(&quot;Lebanon&quot;),</span>
+<span class="fc" id="L129">    LS(&quot;Lesotho&quot;),</span>
+<span class="fc" id="L130">    LR(&quot;Liberia&quot;),</span>
+<span class="fc" id="L131">    LY(&quot;Libya&quot;),</span>
+<span class="fc" id="L132">    LI(&quot;Liechtenstein&quot;),</span>
+<span class="fc" id="L133">    LT(&quot;Lithuania&quot;),</span>
+<span class="fc" id="L134">    LU(&quot;Luxembourg&quot;),</span>
+<span class="fc" id="L135">    MO(&quot;Macao&quot;),</span>
+<span class="fc" id="L136">    MK(&quot;Macedonia&quot;),</span>
+<span class="fc" id="L137">    MG(&quot;Madagascar&quot;),</span>
+<span class="fc" id="L138">    MW(&quot;Malawi&quot;),</span>
+<span class="fc" id="L139">    MY(&quot;Malaysia&quot;),</span>
+<span class="fc" id="L140">    MV(&quot;Maldives&quot;),</span>
+<span class="fc" id="L141">    ML(&quot;Mali&quot;),</span>
+<span class="fc" id="L142">    MT(&quot;Malta&quot;),</span>
+<span class="fc" id="L143">    MH(&quot;Marshall Islands&quot;),</span>
+<span class="fc" id="L144">    MQ(&quot;Martinique&quot;),</span>
+<span class="fc" id="L145">    MR(&quot;Mauritania&quot;),</span>
+<span class="fc" id="L146">    MU(&quot;Mauritius&quot;),</span>
+<span class="fc" id="L147">    YT(&quot;Mayotte&quot;),</span>
+<span class="fc" id="L148">    MX(&quot;Mexico&quot;),</span>
+<span class="fc" id="L149">    FM(&quot;Micronesia&quot;),</span>
+<span class="fc" id="L150">    MD(&quot;Moldova&quot;),</span>
+<span class="fc" id="L151">    MC(&quot;Monaco&quot;),</span>
+<span class="fc" id="L152">    MN(&quot;Mongolia&quot;),</span>
+<span class="fc" id="L153">    ME(&quot;Montenegro&quot;),</span>
+<span class="fc" id="L154">    MS(&quot;Montserrat&quot;),</span>
+<span class="fc" id="L155">    MA(&quot;Morocco&quot;),</span>
+<span class="fc" id="L156">    MZ(&quot;Mozambique&quot;),</span>
+<span class="fc" id="L157">    MM(&quot;Myanmar&quot;),</span>
+<span class="fc" id="L158">    NA(&quot;Namibia&quot;),</span>
+<span class="fc" id="L159">    NR(&quot;Nauru&quot;),</span>
+<span class="fc" id="L160">    NP(&quot;Nepal&quot;),</span>
+<span class="fc" id="L161">    NL(&quot;Netherlands&quot;),</span>
+<span class="fc" id="L162">    AN(&quot;Netherlands Antilles&quot;),</span>
+<span class="fc" id="L163">    NC(&quot;New Caledonia&quot;),</span>
+<span class="fc" id="L164">    NZ(&quot;New Zealand&quot;),</span>
+<span class="fc" id="L165">    NI(&quot;Nicaragua&quot;),</span>
+<span class="fc" id="L166">    NE(&quot;Niger&quot;),</span>
+<span class="fc" id="L167">    NG(&quot;Nigeria&quot;),</span>
+<span class="fc" id="L168">    NU(&quot;Niue&quot;),</span>
+<span class="fc" id="L169">    NF(&quot;Norfolk Island&quot;),</span>
+<span class="fc" id="L170">    KP(&quot;North Korea&quot;),</span>
+<span class="fc" id="L171">    MP(&quot;Northern Mariana Islands&quot;),</span>
+<span class="fc" id="L172">    NO(&quot;Norway&quot;),</span>
+<span class="fc" id="L173">    OM(&quot;Oman&quot;),</span>
+<span class="fc" id="L174">    PK(&quot;Pakistan&quot;),</span>
+<span class="fc" id="L175">    PW(&quot;Palau&quot;),</span>
+<span class="fc" id="L176">    PS(&quot;Palestinian Territory&quot;),</span>
+<span class="fc" id="L177">    PA(&quot;Panama&quot;),</span>
+<span class="fc" id="L178">    PG(&quot;Papua New Guinea&quot;),</span>
+<span class="fc" id="L179">    PY(&quot;Paraguay&quot;),</span>
+<span class="fc" id="L180">    PE(&quot;Peru&quot;),</span>
+<span class="fc" id="L181">    PH(&quot;Philippines&quot;),</span>
+<span class="fc" id="L182">    PN(&quot;Pitcairn&quot;),</span>
+<span class="fc" id="L183">    PL(&quot;Poland&quot;),</span>
+<span class="fc" id="L184">    PT(&quot;Portugal&quot;),</span>
+<span class="fc" id="L185">    PR(&quot;Puerto Rico&quot;),</span>
+<span class="fc" id="L186">    QA(&quot;Qatar&quot;),</span>
+<span class="fc" id="L187">    CG(&quot;Republic of the Congo&quot;),</span>
+<span class="fc" id="L188">    RE(&quot;Reunion&quot;),</span>
+<span class="fc" id="L189">    RO(&quot;Romania&quot;),</span>
+<span class="fc" id="L190">    RU(&quot;Russia&quot;),</span>
+<span class="fc" id="L191">    RW(&quot;Rwanda&quot;),</span>
+<span class="fc" id="L192">    BL(&quot;Saint Barthelemy&quot;),</span>
+<span class="fc" id="L193">    SH(&quot;Saint Helena&quot;),</span>
+<span class="fc" id="L194">    KN(&quot;Saint Kitts and Nevis&quot;),</span>
+<span class="fc" id="L195">    LC(&quot;Saint Lucia&quot;),</span>
+<span class="fc" id="L196">    MF(&quot;Saint Martin&quot;),</span>
+<span class="fc" id="L197">    PM(&quot;Saint Pierre and Miquelon&quot;),</span>
+<span class="fc" id="L198">    VC(&quot;Saint Vincent and the Grenadines&quot;),</span>
+<span class="fc" id="L199">    WS(&quot;Samoa&quot;),</span>
+<span class="fc" id="L200">    SM(&quot;San Marino&quot;),</span>
+<span class="fc" id="L201">    ST(&quot;Sao Tome and Principe&quot;),</span>
+<span class="fc" id="L202">    SA(&quot;Saudi Arabia&quot;),</span>
+<span class="fc" id="L203">    SN(&quot;Senegal&quot;),</span>
+<span class="fc" id="L204">    RS(&quot;Serbia&quot;),</span>
+<span class="fc" id="L205">    CS(&quot;Serbia and Montenegro&quot;),</span>
+<span class="fc" id="L206">    SC(&quot;Seychelles&quot;),</span>
+<span class="fc" id="L207">    SL(&quot;Sierra Leone&quot;),</span>
+<span class="fc" id="L208">    SG(&quot;Singapore&quot;),</span>
+<span class="fc" id="L209">    SX(&quot;Sint Maarten&quot;),</span>
+<span class="fc" id="L210">    SK(&quot;Slovakia&quot;),</span>
+<span class="fc" id="L211">    SI(&quot;Slovenia&quot;),</span>
+<span class="fc" id="L212">    SB(&quot;Solomon Islands&quot;),</span>
+<span class="fc" id="L213">    SO(&quot;Somalia&quot;),</span>
+<span class="fc" id="L214">    ZA(&quot;South Africa&quot;),</span>
+<span class="fc" id="L215">    GS(&quot;South Georgia and the South Sandwich Islands&quot;),</span>
+<span class="fc" id="L216">    KR(&quot;South Korea&quot;),</span>
+<span class="fc" id="L217">    SS(&quot;South Sudan&quot;),</span>
+<span class="fc" id="L218">    ES(&quot;Spain&quot;),</span>
+<span class="fc" id="L219">    LK(&quot;Sri Lanka&quot;),</span>
+<span class="fc" id="L220">    SD(&quot;Sudan&quot;),</span>
+<span class="fc" id="L221">    SR(&quot;Suriname&quot;),</span>
+<span class="fc" id="L222">    SJ(&quot;Svalbard and Jan Mayen&quot;),</span>
+<span class="fc" id="L223">    SZ(&quot;Swaziland&quot;),</span>
+<span class="fc" id="L224">    SE(&quot;Sweden&quot;),</span>
+<span class="fc" id="L225">    CH(&quot;Switzerland&quot;),</span>
+<span class="fc" id="L226">    SY(&quot;Syria&quot;),</span>
+<span class="fc" id="L227">    TW(&quot;Taiwan&quot;),</span>
+<span class="fc" id="L228">    TJ(&quot;Tajikistan&quot;),</span>
+<span class="fc" id="L229">    TZ(&quot;Tanzania&quot;),</span>
+<span class="fc" id="L230">    TH(&quot;Thailand&quot;),</span>
+<span class="fc" id="L231">    TG(&quot;Togo&quot;),</span>
+<span class="fc" id="L232">    TK(&quot;Tokelau&quot;),</span>
+<span class="fc" id="L233">    TO(&quot;Tonga&quot;),</span>
+<span class="fc" id="L234">    TT(&quot;Trinidad and Tobago&quot;),</span>
+<span class="fc" id="L235">    TN(&quot;Tunisia&quot;),</span>
+<span class="fc" id="L236">    TR(&quot;Turkey&quot;),</span>
+<span class="fc" id="L237">    TM(&quot;Turkmenistan&quot;),</span>
+<span class="fc" id="L238">    TC(&quot;Turks and Caicos Islands&quot;),</span>
+<span class="fc" id="L239">    TV(&quot;Tuvalu&quot;),</span>
+<span class="fc" id="L240">    VI(&quot;U.S. Virgin Islands&quot;),</span>
+<span class="fc" id="L241">    UG(&quot;Uganda&quot;),</span>
+<span class="fc" id="L242">    UA(&quot;Ukraine&quot;),</span>
+<span class="fc" id="L243">    AE(&quot;United Arab Emirates&quot;),</span>
+<span class="fc" id="L244">    GB(&quot;United Kingdom&quot;),</span>
+<span class="fc" id="L245">    US(&quot;United States&quot;),</span>
+<span class="fc" id="L246">    UM(&quot;United States Minor Outlying Islands&quot;),</span>
+<span class="fc" id="L247">    UY(&quot;Uruguay&quot;),</span>
+<span class="fc" id="L248">    UZ(&quot;Uzbekistan&quot;),</span>
+<span class="fc" id="L249">    VU(&quot;Vanuatu&quot;),</span>
+<span class="fc" id="L250">    VA(&quot;Vatican&quot;),</span>
+<span class="fc" id="L251">    VE(&quot;Venezuela&quot;),</span>
+<span class="fc" id="L252">    VN(&quot;Vietnam&quot;),</span>
+<span class="fc" id="L253">    WF(&quot;Wallis and Futuna&quot;),</span>
+<span class="fc" id="L254">    EH(&quot;Western Sahara&quot;),</span>
+<span class="fc" id="L255">    YE(&quot;Yemen&quot;),</span>
+<span class="fc" id="L256">    ZM(&quot;Zambia&quot;),</span>
+<span class="fc" id="L257">    ZW(&quot;Zimbabwe&quot;);</span>
+
+    private final String description;
+
+<span class="fc" id="L261">    Country(String description) {</span>
+<span class="fc" id="L262">        this.description = description;</span>
+<span class="fc" id="L263">    }</span>
+
+    public String getDescription() {
+<span class="fc" id="L266">        return description;</span>
+    }
+
+    public static Country findByDescription(String description) {
+<span class="fc" id="L270">        return EnumSet.allOf(Country.class)</span>
+<span class="fc" id="L271">                .stream()</span>
+<span class="fc" id="L272">                .filter(country -&gt; country.getDescription().equals(description))</span>
+<span class="fc" id="L273">                .findFirst()</span>
+<span class="pc" id="L274">                .orElseThrow(() -&gt; new IllegalArgumentException(&quot;Country &quot; + description + &quot; not found.&quot;));</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

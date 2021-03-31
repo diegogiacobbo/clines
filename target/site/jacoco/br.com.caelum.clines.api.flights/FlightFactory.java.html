@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FlightFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">clines-api</a> &gt; <a href="index.source.html" class="el_package">br.com.caelum.clines.api.flights</a> &gt; <span class="el_source">FlightFactory.java</span></div><h1>FlightFactory.java</h1><pre class="source lang-java linenums">package br.com.caelum.clines.api.flights;
+
+import br.com.caelum.clines.shared.domain.Flight;
+import br.com.caelum.clines.shared.exceptions.AircraftNotFoundException;
+import br.com.caelum.clines.shared.exceptions.AirportNotFoundException;
+import br.com.caelum.clines.shared.exceptions.ViolationException;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+
+@Component
+<span class="fc" id="L13">@AllArgsConstructor</span>
+public class FlightFactory {
+    private final WaypointFormMapper waypointFormMapper;
+    private final ExistingAircraftService aircraftService;
+    private final ExistingAirportService airportService;
+
+    Flight factory(FlightForm form) {
+<span class="nc" id="L20">        var violations = new ArrayList&lt;Exception&gt;();</span>
+
+<span class="nc" id="L22">        populateAircraft(form, violations);</span>
+<span class="nc" id="L23">        populateWaypointForm(form.getDeparture(), violations, &quot;Invalid Departure&quot;);</span>
+<span class="nc" id="L24">        populateWaypointForm(form.getArrival(), violations, &quot;Invalid Arrival&quot;);</span>
+
+<span class="nc bnc" id="L26" title="All 2 branches missed.">        if (!violations.isEmpty()) {</span>
+<span class="nc" id="L27">            throw new ViolationException(violations);</span>
+        }
+
+<span class="nc" id="L30">        var departure = waypointFormMapper.map(form.getDeparture());</span>
+<span class="nc" id="L31">        var arrival = waypointFormMapper.map(form.getArrival());</span>
+<span class="nc" id="L32">        var aircraft = form.getAircraft();</span>
+<span class="nc" id="L33">        var price = form.getPrice();</span>
+
+<span class="nc" id="L35">        return new Flight(price, departure, arrival, aircraft);</span>
+    }
+
+    private void populateAircraft(FlightForm form, ArrayList&lt;Exception&gt; violations) {
+<span class="nc" id="L39">        aircraftService</span>
+<span class="nc" id="L40">                .findByCode(form.getAircraftId())</span>
+<span class="nc" id="L41">                .ifPresentOrElse(form::setAircraft, () -&gt; violations.add(new AircraftNotFoundException(&quot;Invalid Aircraft&quot;)));</span>
+<span class="nc" id="L42">    }</span>
+
+    private void populateWaypointForm(WaypointForm form, ArrayList&lt;Exception&gt; violations, String message) {
+<span class="nc" id="L45">        airportService</span>
+<span class="nc" id="L46">                .findById(form.getAirportId())</span>
+<span class="nc" id="L47">                .ifPresentOrElse(form::setAirport, () -&gt; violations.add(new AirportNotFoundException(message)));</span>
+<span class="nc" id="L48">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

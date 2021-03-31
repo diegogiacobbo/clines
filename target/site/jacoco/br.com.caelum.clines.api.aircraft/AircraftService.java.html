@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AircraftService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">clines-api</a> &gt; <a href="index.source.html" class="el_package">br.com.caelum.clines.api.aircraft</a> &gt; <span class="el_source">AircraftService.java</span></div><h1>AircraftService.java</h1><pre class="source lang-java linenums">package br.com.caelum.clines.api.aircraft;
+
+import br.com.caelum.clines.shared.exceptions.AircraftModelNotFoundException;
+import br.com.caelum.clines.shared.exceptions.ResourceAlreadyExistsException;
+import br.com.caelum.clines.shared.exceptions.ResourceNotFoundException;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+import static java.util.stream.Collectors.toList;
+
+@Service
+<span class="fc" id="L14">@AllArgsConstructor</span>
+public class AircraftService {
+
+    private final AircraftRepository repository;
+    private final ExistingAircraftModelService modelService;
+    private final AircraftViewMapper viewMapper;
+    private final AircraftFormMapper formMapper;
+
+    public AircraftView showAircraftBy(String code) {
+
+<span class="fc" id="L24">        var aircraft = repository.findByCode(code).orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Cannot find aircraft&quot;));</span>
+
+<span class="fc" id="L26">        return viewMapper.map(aircraft);</span>
+    }
+
+    public List&lt;AircraftView&gt; listAllAircraft() {
+<span class="fc" id="L30">        return repository.findAll().stream().map(viewMapper::map).collect(toList());</span>
+    }
+
+    public String createAircraftBy(AircraftForm form) {
+<span class="nc" id="L34">        repository.findByCode(form.getCode()).ifPresent(aircraft -&gt; {</span>
+<span class="nc" id="L35">                throw new ResourceAlreadyExistsException(&quot;Aircraft already exists&quot;);</span>
+        });
+
+<span class="nc" id="L38">        var model = modelService.findById(form.getModelId()).orElseThrow(() -&gt; new AircraftModelNotFoundException(&quot;Cannot find aircraft model&quot;));</span>
+<span class="nc" id="L39">        form.setModel(model);</span>
+
+<span class="nc" id="L41">        var aircraft = formMapper.map(form);</span>
+
+<span class="nc" id="L43">        repository.save(aircraft);</span>
+
+<span class="nc" id="L45">        return aircraft.getCode();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
